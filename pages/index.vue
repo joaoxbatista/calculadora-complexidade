@@ -1,14 +1,14 @@
 <style>
     .bg-spot {
-        background: radial-gradient(circle at bottom left, rgba(50, 90, 158, .4), transparent 20%), radial-gradient(circle at top right, rgba(21, 168, 112, .2), transparent 40%), radial-gradient(ellipse at top, #0F172A 20%, #1E293B 90%);
+        background: radial-gradient(circle at bottom left, rgba(50, 90, 158, .4), transparent 20%), radial-gradient(circle at top right, rgba(21, 168, 112, .2), transparent 40%), linear-gradient(5deg, #036564, #033649);;
     }
 </style>
 <template>
 <div class="bg-spot">
-    <div class="bg-green-500">
-        <div class="max-w-6xl mx-auto py-4 px-4">
-            <h3 class="text-2xl text-green-900 font-bold m-0 p-0">Calculadora de complexidade</h3>
-            <h4 class="text-md font-semibold text-green-800">Selecione as características da atividade</h4>
+    <div class="bg-spot-2 mb-12">
+        <div class="max-w-6xl mx-auto py-8 px-5">
+            <h3 class="text-2xl text-white font-bold uppercase m-0 p-0">Calculadora de complexidade</h3>
+            <h4 class="text-md font-semibold text-green-400">Selecione as características da atividade</h4>
         </div>
     </div>
 
