@@ -1,8 +1,3 @@
-<style>
-    .bg-spot {
-        background: radial-gradient(circle at bottom left, rgba(50, 90, 158, .4), transparent 20%), radial-gradient(circle at top right, rgba(21, 168, 112, .2), transparent 40%), linear-gradient(5deg, #036564, #033649);;
-    }
-</style>
 <template>
 <div class="bg-spot">
     <div class="bg-spot-2 mb-12">
@@ -13,7 +8,17 @@
     </div>
 
     <div class="max-w-6xl mx-auto py-4">
-        <div class="flex -mx-2">
+        <div class="flex justify-center">
+            <div class="mb-4" v-if="complex">
+                <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                    <span class="bg-slate-900 px-2 text-sm py-1 rounded text-green-500 mr-2">{{ totalComplex }} pts</span>
+                    Complexidade
+                    <span class="bg-slate-900 px-4 py-2 rounded text-green-500 ml-2">{{ complex }}</span>
+                </h3>
+            </div>
+        </div>
+
+        <div class="flex -mx-2 mb-8">
             <div class="flex items-center px-6 my-2">
                 <div class="rounded mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
                     <span class="font-bold mr-1">{{ totalVisualComplex }}</span> pts
@@ -194,10 +199,29 @@ const complexTestItems = reactive([
     },
 ])
 
+const ranges = [
+    { min: 1, max: 25, label: '1' },
+    { min: 26, max: 50, label: '2' },
+    { min: 51, max: 75 , label: '3' },
+    { min: 76, max: false , label: '4' },
+]
+
 const totalVisualComplex = computed(() => complexVisualItems.map(item => item.count * item.value).reduce((val, acc) => val + acc))
 const totalComportamentalComplex = computed(() => complexComportamentalItems.map(item => item.count * item.value).reduce((val, acc) => val + acc))
 const totalDatabaseComplex = computed(() => complexDatabaseItems.map(item => item.count * item.value).reduce((val, acc) => val + acc))
 const totalTestComplex = computed(() => complexTestItems.map(item => item.count * item.value).reduce((val, acc) => val + acc))
+const totalComplex = computed(() => {
+    return totalVisualComplex.value + totalComportamentalComplex.value + totalDatabaseComplex.value + totalTestComplex.value
+})
+const complex = computed(() => {
+    const range = ranges.filter( range => {
+        const min = totalComplex.value >= range.min
+        const max = range.max ? (totalComplex.value <= range.max) : min
+
+        return min && max
+    })?.[0]
+    return range?.label || null
+})
 
 const decrement = (item) => {
     if (item.count - 1 < 0) return
@@ -206,4 +230,11 @@ const decrement = (item) => {
 
 const increment = (item) => item.count++
 
+
 </script>
+
+<style>
+    .bg-spot {
+        background: radial-gradient(circle at bottom left, rgba(50, 90, 158, .4), transparent 20%), radial-gradient(circle at top right, rgba(21, 168, 112, .2), transparent 40%), linear-gradient(5deg, #036564, #033649);;
+    }
+</style>
