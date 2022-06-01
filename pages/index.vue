@@ -1,35 +1,42 @@
+<style>
+    .bg-spot {
+        background: radial-gradient(circle at bottom left, rgba(50, 90, 158, .4), transparent 20%), radial-gradient(circle at top right, rgba(21, 168, 112, .2), transparent 40%), radial-gradient(ellipse at top, #0F172A 20%, #1E293B 90%);
+    }
+</style>
 <template>
-<div class="bg-gradient-to-br from-slate-900 to-slate-800">
-    <div class="bg-green-500 flex flex-col justify-center items-center p-3">
-        <h3 class="text-xl text-white font-bold m-0 p-0">Calculadora de complexidade</h3>
-        <h4 class="text-md text-green-800">Selecione as características da atividade</h4>
+<div class="bg-spot">
+    <div class="bg-green-500">
+        <div class="max-w-6xl mx-auto py-4 px-4">
+            <h3 class="text-2xl text-green-900 font-bold m-0 p-0">Calculadora de complexidade</h3>
+            <h4 class="text-md font-semibold text-green-800">Selecione as características da atividade</h4>
+        </div>
     </div>
 
     <div class="max-w-6xl mx-auto py-4">
-        <div class="flex flex-wrap -mx-2">
-            <div class="flex items-center px-2 my-2">
-                <div class="rounded-full mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
+        <div class="flex -mx-2">
+            <div class="flex items-center px-6 my-2">
+                <div class="rounded mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
                     <span class="font-bold mr-1">{{ totalVisualComplex }}</span> pts
                 </div>
                 <h4 class="font-semibold text-white">Complexidade visual</h4>
             </div>
 
-            <div class="flex items-center px-2 my-2">
-                <div class="rounded-full mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
+            <div class="flex items-center px-6 my-2">
+                <div class="rounded mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
                     <span class="font-bold mr-1">{{ totalComportamentalComplex }}</span> pts
                 </div>
                 <h4 class="font-semibold text-white">Complexidade comportamental</h4>
             </div>
 
-            <div class="flex items-center px-2 my-2">
-                <div class="rounded-full mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
+            <div class="flex items-center px-6 my-2">
+                <div class="rounded mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
                     <span class="font-bold mr-1">{{ totalDatabaseComplex }}</span> pts
                 </div>
                 <h4 class="font-semibold text-white">Complexidade dos dados</h4>
             </div>
             
-            <div class="flex items-center px-2 my-2">
-                <div class="rounded-full mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
+            <div class="flex items-center px-6 my-2">
+                <div class="rounded mr-2 h-14 w-14 bg-green-500 text-green-200 flex items-center justify-center">
                     <span class="font-bold mr-1">{{ totalTestComplex }}</span> pts
                 </div>
                 <h4 class="font-semibold text-white">Complexidade dos testes</h4>
